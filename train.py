@@ -73,7 +73,7 @@ def train():
         valid_loss = valid_loss / float(np.floor(len(valid_loader.dataset) * valid_size))
         valid_loss_list.append(valid_loss)
 
-        training_accuracy = float(predict_correct) / float(len(train_loader.dataset))
+        training_accuracy = float(predict_correct) / float(len(train_loader.dataset) * (1 - valid_size))
         train_accuracy_list.append(training_accuracy)
         print(f'Training loss: {train_loss:.4f}\nValidation loss: {valid_loss:.4f}\nAccuracy: {training_accuracy:.4f}')
 
